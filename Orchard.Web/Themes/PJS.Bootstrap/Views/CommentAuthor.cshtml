@@ -1,0 +1,7 @@
+﻿@using Orchard.Comments.Models
+
+@{
+    CommentPart comment = Model.ContentPart;
+}
+
+<a href="@Href("~/Search?q=" + comment.Author)">@comment.Author</a>

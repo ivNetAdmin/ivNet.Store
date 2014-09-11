@@ -1,4 +1,9 @@
-﻿(function ($) {
+﻿angular.module('todoApp', [])
+    .controller('ShoppingCart', ['$scope', function ($scope) {
+
+    }]);
+
+(function ($) {
 
     $(".shoppingcart a.icon.delete").click(function (e) {
         var $button = $(this);

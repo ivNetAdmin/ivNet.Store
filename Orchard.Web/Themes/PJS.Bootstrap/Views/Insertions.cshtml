@@ -1,0 +1,7 @@
+﻿@{
+    // the following code only runs if the site is live
+    if (!String.IsNullOrEmpty(WorkContext.CurrentSite.BaseUrl) && WorkContext.HttpContext.Request.Url.Host == new Uri(WorkContext.CurrentSite.BaseUrl).Host) {
+    }
+
+    WorkContext.Layout.Footer.Add(New.BadgeOfHonor(), "5");
+}

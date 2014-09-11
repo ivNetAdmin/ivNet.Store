@@ -4,7 +4,7 @@
     <ExtensionId>ivNet.Store</ExtensionId>
     <LoaderName>DynamicExtensionLoader</LoaderName>
     <VirtualPath>~/Modules/ivNet.Store/ivNet.Store.csproj</VirtualPath>
-    <Hash>8d3dc4333309af85</Hash>
+    <Hash>8d3dc44d19754479</Hash>
   </Dependency>
   <Dependency>
     <ExtensionId>Lucene</ExtensionId>
@@ -353,6 +353,12 @@
     <LoaderName>PrecompiledExtensionLoader</LoaderName>
     <VirtualPath>~/Modules/Orchard.Workflows/bin/Orchard.Workflows.dll</VirtualPath>
     <Hash>dbac34b7cd8ba62c</Hash>
+  </Dependency>
+  <Dependency>
+    <ExtensionId>PJS.Bootstrap</ExtensionId>
+    <LoaderName>DynamicExtensionLoader</LoaderName>
+    <VirtualPath>~/Themes/PJS.Bootstrap/PJS.Bootstrap.csproj</VirtualPath>
+    <Hash>817512cc2efef9a3</Hash>
   </Dependency>
   <Dependency>
     <ExtensionId>SysCache</ExtensionId>

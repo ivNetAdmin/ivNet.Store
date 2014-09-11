@@ -75,7 +75,7 @@ namespace ivNet.Store.Controllers
                 case "Checkout":
                     break;
                 case "ContinueShopping":
-                    break;
+                    return Redirect("/shop");
                 case "Update":
                     break;
             }

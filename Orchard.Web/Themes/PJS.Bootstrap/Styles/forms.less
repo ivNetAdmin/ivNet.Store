@@ -1,0 +1,48 @@
+﻿fieldset > div {
+    .form-group;
+}
+
+input[type="text"], input[type="password"], textarea, select {
+    .form-control;
+}
+
+textarea {
+    height: auto; // to override the form-control height
+}
+
+button {
+    .btn;
+    .btn-default;
+}
+
+button.primaryAction {
+    .btn-primary;
+}
+
+ol, ul {
+    .list-unstyled;
+}
+
+.pager {
+    .pagination;
+}
+
+html.orchard-users {
+    form {
+        .make-row;
+
+        fieldset {
+            .make-md-column(6);
+        }
+    }
+}
+
+.input-validation-error {
+    .box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
+    border-color: @state-danger-text !important;
+}
+
+.field-validation-error {
+    .help-block;
+    color: @state-danger-text;
+}

@@ -11,11 +11,11 @@
 @if (!items.Any())
 {
     <p>You don't have any items in your shopping cart.</p>
-    <a class="button" href="#">Continue shopping</a>
+    <a class="button" href="/shop">Continue shopping</a>
 }
 else
 {
-    <article ng-app class="shoppingcart">
+   <article class="shoppingcart">
         @using (Html.BeginFormAntiForgeryPost(Url.Action("Update", "ShoppingCart", new {area = "ivNet.Store"})))
         {
             <table>

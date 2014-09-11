@@ -1,0 +1,85 @@
+﻿@using System.Linq;
+@using Orchard.MediaLibrary.Models
+
+@{
+    Script.Require("Isotope");
+    Script.Require("prettyPhoto");
+
+    Style.Require("prettyPhoto");
+
+    var images = (IEnumerable<MediaPart>)Model.Images;
+    
+    var count = images.Count();
+
+    string categories = string.Empty;
+    
+    foreach (var category in images.Where(x => !string.IsNullOrWhiteSpace(x.AlternateText)).Select(x => x.AlternateText)) {
+        categories += category + ",";
+    }
+    
+    char[] delimiters = new char[] { ',' };
+    string[] categoryList = categories.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+    
+    var distinctCategories = categoryList.Distinct().OrderBy(x => x).ToArray();
+
+    if (images != null && count > 0) {
+        <ul class="portfolio-filter nav nav-pills">
+            <li class="active"><a href="#" data-filter="*">@T("All")</a></li>
+            @foreach (var category in distinctCategories) {
+                <li><a href="#" data-filter=".@category.Replace(" ", "-")">@category</a></li>
+            }
+        </ul>
+        <div id="isotope-portfolio-container">
+            @foreach (var img in images.OrderBy(x => x.Title)) {
+                <div class="col-xs-12 col-sm-6 col-md-3 portfolio-item-wrapper @(string.IsNullOrWhiteSpace(img.AlternateText) ? string.Empty : img.AlternateText.Replace(" ", "-").Replace(",", " "))">
+                    <div class="portfolio-item">
+                        <div class="portfolio-thumb">
+                            <a href="@img.MediaUrl" rel="prettyPhoto[pp_gal]"><img src="@img.MediaUrl" class="img-responsive"></a>
+                        </div>
+                        <div class="portfolio-details">
+                            <h5>@img.Title</h5>
+                            <p>@img.Caption</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+
+    using (Script.Foot()) {
+        <script type="text/javascript">
+            $(document).ready(function () {
+                // PrettyPhoto
+                $("a[rel^='prettyPhoto']").prettyPhoto({
+                    theme: 'light_square',
+                    social_tools: false
+                });
+            });
+
+            // Isotope Portfolio
+            var $container = $('#isotope-portfolio-container');
+            var $filter = $('.portfolio-filter');
+
+            $(window).load(function () {
+                // Initialize Isotope
+                $container.isotope({
+                    itemSelector: '.portfolio-item-wrapper'
+                });
+                $('.portfolio-filter a').click(function () {
+                    var selector = $(this).attr('data-filter');
+                    $container.isotope({ filter: selector });
+                    return false;
+                });
+                $filter.find('a').click(function () {
+                    var selector = $(this).attr('data-filter');
+                    $filter.find('a').parent().removeClass('active');
+                    $(this).parent().addClass('active');
+                });
+            });
+
+            $(window).smartresize(function () {
+                $container.isotope('reLayout');
+            });
+        </script>
+    }
+}

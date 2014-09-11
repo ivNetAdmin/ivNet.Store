@@ -1,0 +1,33 @@
+@using Orchard.ContentManagement;
+@using PJS.Bootstrap.Models;
+
+@{
+    var settings = WorkContext.CurrentSite.As<ThemeSettingsPart>();
+
+    string title = Convert.ToString(Model.Title);
+    string siteName = Convert.ToString(WorkContext.CurrentSite.SiteName);
+
+    Display.Resources();
+}
+
+<!DOCTYPE html>
+<html lang="@WorkContext.CurrentCulture" class="static @Html.ClassForPage() @(settings.UseFluidLayout ? "fluid-layout" : "boxed-layout") @(settings.UseFixedNav ? "fixed-nav" : "floating-nav") @(settings.UseStickyFooter ? "sticky-footer" : string.Empty)"> 
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="index, follow, archive" />
+    <title>@Html.Title(title, siteName)</title>
+
+    @Display(Model.Head)
+
+    <script type="text/javascript">
+        (function (d) { d.className = "dyn" + d.className.substring(6, d.className.length); })(document.documentElement);
+        window.applicationBaseUrl = @Html.Raw(HttpUtility.JavaScriptStringEncode(Url.Content("~/"), true));
+    </script>
+</head>
+
+<body class="theme-@WorkContext.CurrentTheme.Id">
+    @Display(Model.Body)
+    @Display(Model.Tail)
+</body>
+</html>
