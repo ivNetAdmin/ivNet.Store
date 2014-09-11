@@ -32,8 +32,8 @@
   </Dependency>
   <Dependency>
     <ModuleName>ivNet.Store</ModuleName>
-    <VirtualPath>~/Modules/ivNet.Store/bin/ivNet.Store.dll</VirtualPath>
-    <LoaderName>PrecompiledExtensionLoader</LoaderName>
+    <VirtualPath>~/Modules/ivNet.Store/ivNet.Store.csproj</VirtualPath>
+    <LoaderName>DynamicExtensionLoader</LoaderName>
     <References />
   </Dependency>
   <Dependency>

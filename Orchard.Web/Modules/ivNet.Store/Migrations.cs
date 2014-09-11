@@ -34,5 +34,34 @@ namespace ivNet.Store
 
             return 2;
         }
+
+        public int UpdateFrom2()
+        {
+
+            // Define a new content type called "ShoppingCartWidget"
+            ContentDefinitionManager.AlterTypeDefinition("ShoppingCartWidget", type => type
+
+                // Attach the "ShoppingCartWidgetPart"
+                .WithPart("ShoppingCartWidgetPart")
+
+                // In order to turn this content type into a widget, it needs the WidgetPart
+                .WithPart("WidgetPart")
+
+                // It also needs a setting called "Stereotype" to be set to "Widget"
+                .WithSetting("Stereotype", "Widget")
+                );
+
+            return 3;
+        }
+
+        public int UpdateFrom3()
+        {
+            // Update the ShoppingCartWidget so that it has a CommonPart attached, which is required for widgets (it's generally a good idea to have this part attached)
+            ContentDefinitionManager.AlterTypeDefinition("ShoppingCartWidget", type => type
+                .WithPart("CommonPart")
+            );
+
+            return 4;
+        }
     }
 }

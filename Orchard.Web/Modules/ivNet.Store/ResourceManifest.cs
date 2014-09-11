@@ -10,8 +10,12 @@ namespace ivNet.Store
             // Create and add a new manifest
             var manifest = builder.Add();
 
-            // Define a "common" style sheet
+            // Define a "store" style sheet
             manifest.DefineStyle("ivNet.Store").SetUrl("store.css");
+
+            // Define a "store" script
+            manifest.DefineScript("AngularJS").SetUrl("angular.min.js").SetDependencies("jQuery");
+            manifest.DefineScript("ivNet.Store").SetUrl("store.js").SetDependencies("AngularJS");
        
         }
     }
