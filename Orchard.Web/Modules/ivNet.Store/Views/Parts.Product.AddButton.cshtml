@@ -1,0 +1,7 @@
+﻿@{
+    var productId = (int)Model.ProductId;
+}
+@using (Html.BeginFormAntiForgeryPost(Url.Action("Add", "ShoppingCart", new { id = productId, area = "ivNet.Store" })))
+{
+    <button type="submit">@T("Add to shoppingcart")</button>
+}

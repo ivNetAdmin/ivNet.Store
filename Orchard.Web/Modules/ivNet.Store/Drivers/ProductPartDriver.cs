@@ -26,10 +26,19 @@ namespace ivNet.Store.Drivers
 
         protected override DriverResult Display(ProductPart part, string displayType, dynamic shapeHelper)
         {
-            return ContentShape("Parts_Product", () => shapeHelper.Parts_Product(
+            // To return more than 1 shape, use the Combined method to create a "CombinedShapeResult" object.
+            return Combined(
+
+                // Shape 1: Parts_Product
+                ContentShape("Parts_Product", () => shapeHelper.Parts_Product(
                     Price: part.UnitPrice,
                     Sku: part.Sku
-                ));
+                )),
+
+                // Shape 2: Parts_Product_AddButton
+                ContentShape("Parts_Product_AddButton", () => shapeHelper.Parts_Product_AddButton(ProductId: part.Id))
+                );
         }
+
     }
 }

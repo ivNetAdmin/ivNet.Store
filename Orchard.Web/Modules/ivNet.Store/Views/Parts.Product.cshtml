@@ -3,6 +3,6 @@
     var sku = (string)Model.Sku;
 }
 <article>
-    Price: @price<br />
+    Price: @String.Format("£{0:0.00}", price);<br />
     Sku: @sku
 </article>

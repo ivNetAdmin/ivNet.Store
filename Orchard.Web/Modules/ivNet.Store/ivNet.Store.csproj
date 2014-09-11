@@ -67,6 +67,8 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Styles\Images\sprites.png" />
+    <Content Include="Styles\Store.css" />
     <Content Include="Web.config" />
     <Content Include="Scripts\Web.config" />
     <Content Include="Styles\Web.config" />
@@ -84,14 +86,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Drivers\ProductPartDriver.cs" />
     <Compile Include="Handlers\ProductPartHandler.cs" />
     <Compile Include="Migrations.cs" />
     <Compile Include="Models\ProductPart.cs" />
+    <Compile Include="Models\ProductQuantity.cs" />
+    <Compile Include="Models\ShoppingCartItem.cs" />
+    <Compile Include="ViewModels\UpdateShoppingCartItemViewModel.cs" />
+    <Compile Include="ResourceManifest.cs" />
+    <Compile Include="Services\ShoppingCart.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Views\EditorTemplates\Parts.Product.cshtml" />
   </ItemGroup>
@@ -100,6 +106,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Parts.Product.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Parts.Product.AddButton.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ShoppingCart.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

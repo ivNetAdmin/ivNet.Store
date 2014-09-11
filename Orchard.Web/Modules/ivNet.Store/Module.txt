@@ -6,6 +6,7 @@ Version: 1.0
 OrchardVersion: 1.8.1
 Description: Webstore tools
 Category: ivNet
+Dependencies: Orchard.Projector, Orchard.Forms, Orchard.jQuery
 Features:
     ivNet.Store:
         Description: Products, Shopping Cart
