@@ -1,0 +1,11 @@
+﻿Name: ivNet.Store
+AntiForgery: enabled
+Author: ivNet Ltd
+Website: http://ivnet.co.uk
+Version: 1.0
+OrchardVersion: 1.8.1
+Description: Webstore tools
+Category: ivNet
+Features:
+    ivNet.Store:
+        Description: Products, Shopping Cart
